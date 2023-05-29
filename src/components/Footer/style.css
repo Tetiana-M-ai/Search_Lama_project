@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  background-color: black;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.footer_items {
+  font: 1em sans-serif;
+  margin: 10px 20px;
+}
