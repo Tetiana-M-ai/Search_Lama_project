@@ -1,0 +1,68 @@
+.container_form {
+  max-width: 30%;
+  margin: 200px auto;
+  background-color: grey;
+  border-radius: 10px;
+  padding: 20px 15px;
+}
+
+.form_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  font-size: 2rem;
+  padding: 50px 0;
+  margin: 0;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+
+.form_input {
+  width: 100%;
+  height: 40px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: solid 1px rgb(175, 175, 175);
+}
+
+svg {
+  position: relative;
+  bottom: 28px;
+  left: 250px;
+}
+
+.form_checkbox {
+  display: flex;
+  margin-left: 0px 10px 10px 10px;
+  gap: 5px;
+}
+
+.form_tick {
+  width: 20px;
+  height: 20px;
+}
+
+.error {
+  color: orangered;
+  font-size: 0.8rem;
+}
+
+a.form_link {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-size: 0.7rem;
+}
+
+.text_checkbox {
+  font-size: 0.8rem;
+  margin: auto;
+}
