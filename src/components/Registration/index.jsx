@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import { useForm } from 'react-hook-form';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
+import { signUp } from '../../functions/auth.js';
 
 export const Registration = () => {
   const {
@@ -13,7 +14,9 @@ export const Registration = () => {
   } = useForm({ mode: 'onTouched' });
 
   const onSubmit = (data) => {
-    console.log(data);
+    signUp(data.email, data.password).then(() => {
+      // window.location.href = '/';
+    });
     reset();
   };
 
