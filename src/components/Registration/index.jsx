@@ -43,13 +43,17 @@ export const Registration = () => {
             <input
               className="form_input"
               type="email"
-              {...register('email', { required: '*  Pole je povinné' })}
+              {...register('email', {
+                required: '*  Pole je povinné',
+                pattern: {
+                  value: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$',
+                  message: '*  E-mailová adresa je neplatná',
+                },
+              })}
               placeholder="E-mail"
             />
-            <div style={{ height: 20 }}>
-              {errors?.email && (
-                <p className="error">{errors?.email?.message || 'Error!'}</p>
-              )}
+            <div>
+              {errors.email && <p className="error">{errors.email.message}</p>}
             </div>
           </div>
 
@@ -59,7 +63,7 @@ export const Registration = () => {
               name="password"
               type={passwordEye === false ? 'password' : 'text'}
               {...register('password', {
-                required: true,
+                required: '*  Pole je povinné',
                 minLength: {
                   value: 8,
                   message: '*  Heslo musí mít více než 8 znaků',
@@ -68,15 +72,19 @@ export const Registration = () => {
               placeholder="Heslo"
             />
 
-            {passwordEye === false ? (
-              <AiFillEyeInvisible onClick={handlePasswordClick} />
-            ) : (
-              <AiFillEye onClick={handlePasswordClick} />
-            )}
+            <i className="input_eye">
+              {passwordEye === false ? (
+                <AiFillEyeInvisible onClick={handlePasswordClick} />
+              ) : (
+                <AiFillEye onClick={handlePasswordClick} />
+              )}
+            </i>
 
-            {errors.password && (
-              <p className="error">{errors.password.message}</p>
-            )}
+            <div>
+              {errors.password && (
+                <p className="error">{errors.password.message}</p>
+              )}
+            </div>
           </div>
 
           <div className="form_box">
@@ -96,15 +104,19 @@ export const Registration = () => {
               placeholder="Heslo pro potvrzení"
             />
 
-            {confirmPasswordEye === false ? (
-              <AiFillEyeInvisible onClick={handleConfirmPasswordClick} />
-            ) : (
-              <AiFillEye onClick={handleConfirmPasswordClick} />
-            )}
+            <i className="input_eye">
+              {confirmPasswordEye === false ? (
+                <AiFillEyeInvisible onClick={handleConfirmPasswordClick} />
+              ) : (
+                <AiFillEye onClick={handleConfirmPasswordClick} />
+              )}
+            </i>
 
-            {errors.passwordConfirm && (
-              <p className="error">{errors.passwordConfirm.message}</p>
-            )}
+            <div>
+              {errors.passwordConfirm && (
+                <p className="error">{errors.passwordConfirm.message}</p>
+              )}
+            </div>
           </div>
 
           <div className="form_checkbox">
@@ -122,7 +134,7 @@ export const Registration = () => {
 
           <div className="form_box">
             <input
-              className="form_input"
+              className="form_btn"
               value="Registrovat se"
               type="submit"
               disabled={!isValid}

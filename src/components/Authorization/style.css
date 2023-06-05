@@ -1,9 +1,9 @@
 .container_form {
   max-width: 30%;
   margin: 200px auto;
-  background-color: grey;
+  background-color: white;
   border-radius: 10px;
-  padding: 20px 15px;
+  padding: 20px 20px;
 }
 
 .form_title {
@@ -20,8 +20,12 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   margin-bottom: 10px;
+}
+
+.form_box {
+  position: relative;
 }
 
 
@@ -33,36 +37,58 @@
   border: solid 1px rgb(175, 175, 175);
 }
 
-svg {
-  position: relative;
-  bottom: 28px;
-  left: 250px;
+.form_input_error {
+  width: 100%;
+  height: 40px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: solid 1px #d93025;
 }
 
-.form_checkbox {
-  display: flex;
-  margin-left: 0px 10px 10px 10px;
-  gap: 5px;
+.form_btn {
+  width: 100%;
+  height: 45px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: solid 1px#919191;
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.form_tick {
-  width: 20px;
-  height: 20px;
+.form_btn_active {
+  background-color: green;
+  border: green;
+  color: white;
+}
+
+.form_btn:hover {
+  background-color: rgb(3, 196, 3);
+  border: rgb(3, 196, 3);
+  color: white;
+}
+
+.input_eye {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  color: #919191;
+  cursor: pointer;
+
 }
 
 .error {
-  color: orangered;
+  color: #d93025;
   font-size: 0.8rem;
+  margin: 5px 0 0 10px;
 }
 
 a.form_link {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-size: 0.7rem;
-}
-
-.text_checkbox {
-  font-size: 0.8rem;
-  margin: auto;
 }

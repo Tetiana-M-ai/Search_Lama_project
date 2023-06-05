@@ -37,10 +37,8 @@ export const Authorization = () => {
               {...register('email', { required: '*  Pole je povinné' })}
               placeholder="E-mail"
             />
-            <div style={{ height: 20 }}>
-              {errors?.email && (
-                <p className="error">{errors?.email?.message || 'Error!'}</p>
-              )}
+            <div>
+              {errors.email && <p className="error">{errors.email.message}</p>}
             </div>
           </div>
 
@@ -50,7 +48,7 @@ export const Authorization = () => {
               name="password"
               type={passwordEye === false ? 'password' : 'text'}
               {...register('password', {
-                required: true,
+                required: '*  Pole je povinné',
                 minLength: {
                   value: 8,
                   message: '*  Heslo musí mít více než 8 znaků',
@@ -59,20 +57,24 @@ export const Authorization = () => {
               placeholder="Heslo"
             />
 
-            {passwordEye === false ? (
-              <AiFillEyeInvisible onClick={handlePasswordClick} />
-            ) : (
-              <AiFillEye onClick={handlePasswordClick} />
-            )}
+            <i className="input_eye">
+              {passwordEye === false ? (
+                <AiFillEyeInvisible onClick={handlePasswordClick} />
+              ) : (
+                <AiFillEye onClick={handlePasswordClick} />
+              )}
+            </i>
 
-            {errors.password && (
-              <p className="error">{errors.password.message}</p>
-            )}
+            <div>
+              {errors.password && (
+                <p className="error">{errors.password.message}</p>
+              )}
+            </div>
           </div>
 
           <div className="form_box">
             <input
-              className="form_input"
+              className="form_btn"
               value="Přihlásít se"
               type="submit"
               disabled={!isValid}
