@@ -75,8 +75,7 @@ p {
   padding: 10px 10px;
   border-radius: 10px;
   border: solid 1px#919191;
-  background-color: green;
-  color: white;
+  color: gray;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -84,17 +83,7 @@ p {
   margin: auto;
 }
 
-.form_btn_active {
-  background-color: green;
-  border: green;
-  color: white;
-}
 
-.form_btn:hover {
-  background-color: rgb(3, 196, 3);
-  border: rgb(3, 196, 3);
-  color: white;
-}
 
 .test {
   display: flex;

@@ -48,7 +48,7 @@ img {
   align-items: center;
 }
 
-button {
+.btn_header {
   margin: 0 10px;
   border-radius: 35px;
   border: 0;
@@ -56,4 +56,5 @@ button {
   background-color: yellow;
   color: black;
   font-weight: bold;
+  text-decoration: none;
 }

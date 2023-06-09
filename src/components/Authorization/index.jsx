@@ -72,7 +72,7 @@ export const Authorization = () => {
             </div>
           </div>
 
-          <div className="form_box">
+          <div className="form_box_btn">
             <input
               className="form_btn"
               value="Přihlásít se"

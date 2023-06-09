@@ -32,6 +32,11 @@ body {
   position: relative;
 }
 
+.form_box_btn {
+  display: flex;
+  justify-content: center;
+}
+
 
 .form_input {
   width: 100%;
@@ -55,24 +60,11 @@ body {
   padding: 10px 10px;
   border-radius: 10px;
   border: solid 1px#919191;
-  background-color: green;
-  color: white;
+  color: gray;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.form_btn_active {
-  background-color: green;
-  border: green;
-  color: white;
-}
-
-.form_btn:hover {
-  background-color: rgb(3, 196, 3);
-  border: rgb(3, 196, 3);
-  color: white;
 }
 
 .input_eye {
@@ -86,6 +78,7 @@ body {
 
 .form_checkbox {
   display: flex;
+  align-items: center;
   margin-left: 0px 10px 10px 10px;
   gap: 5px;
 }
@@ -102,7 +95,7 @@ body {
   margin: 5px 0 0 10px;
 }
 
-a.form_link {
+.form_link {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
@@ -111,5 +104,4 @@ a.form_link {
 
 .text_checkbox {
   font-size: 0.8rem;
-  margin: auto;
 }

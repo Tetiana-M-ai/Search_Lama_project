@@ -28,6 +28,11 @@
   position: relative;
 }
 
+.form_box_btn {
+  display: flex;
+  justify-content: center;
+}
+
 
 .form_input {
   width: 100%;
@@ -51,24 +56,11 @@
   padding: 10px 10px;
   border-radius: 10px;
   border: solid 1px#919191;
-  background-color: green;
-  color: white;
+  color: grey;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.form_btn_active {
-  background-color: green;
-  border: green;
-  color: white;
-}
-
-.form_btn:hover {
-  background-color: rgb(3, 196, 3);
-  border: rgb(3, 196, 3);
-  color: white;
 }
 
 .input_eye {
@@ -77,7 +69,6 @@
   top: 12px;
   color: #919191;
   cursor: pointer;
-
 }
 
 .error {
@@ -86,7 +77,7 @@
   margin: 5px 0 0 10px;
 }
 
-a.form_link {
+.form_link {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;

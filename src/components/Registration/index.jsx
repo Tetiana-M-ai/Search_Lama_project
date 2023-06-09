@@ -124,7 +124,7 @@ export const Registration = () => {
               name="checkbox"
               type="checkbox"
               className="form_tick"
-              {...register('checkbox', { required: true })}
+              {...register('checkbox', { required: '*  Pole je povinné' })}
               value="Yes"
             />
             <p className="text_checkbox">
@@ -132,7 +132,7 @@ export const Registration = () => {
             </p>
           </div>
 
-          <div className="form_box">
+          <div className="form_box_btn">
             <input
               className="form_btn"
               value="Registrovat se"
