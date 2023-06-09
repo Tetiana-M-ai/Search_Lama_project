@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import { useForm } from 'react-hook-form';
 import { FilterListToggle } from './buttonToggle/index';
+import { addRealEstateItems } from '../../functions/db.js';
 
 export const Filter = () => {
   const {
