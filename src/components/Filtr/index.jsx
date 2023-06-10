@@ -12,8 +12,9 @@ export const Filter = () => {
     reset,
   } = useForm({ mode: 'onTouched' });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    await addRealEstateItems(data);
     reset();
   };
 
