@@ -12,3 +12,11 @@ html {
 body {
   margin: 0;
 }
+
+main {
+  margin-top: 4rem;
+}
+
+a {
+  text-decoration: none;
+}
