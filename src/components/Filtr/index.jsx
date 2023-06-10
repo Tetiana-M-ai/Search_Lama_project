@@ -7,6 +7,7 @@ import { addRealEstateItems } from '../../functions/db.js';
 export const Filter = () => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { isValid },
     reset,
@@ -22,7 +23,7 @@ export const Filter = () => {
       <h2 className="form_title">Rozšířený filtr</h2>
       <div>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
-          <FilterListToggle />
+          <FilterListToggle control={control} />
           <div>
             <p>Typ nemovitosti</p>
             <div className="form_section">
@@ -76,7 +77,7 @@ export const Filter = () => {
             <div className="form_radio">
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="1+kk"
                 />
@@ -84,7 +85,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="1+1"
                 />
@@ -92,7 +93,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="2+kk"
                 />
@@ -100,7 +101,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="2+1"
                 />
@@ -108,7 +109,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="3+kk"
                 />
@@ -116,7 +117,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="3+1"
                 />
@@ -124,7 +125,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="4+kk"
                 />
@@ -132,7 +133,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="4+1"
                 />
@@ -140,7 +141,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="5+kk"
                 />
@@ -148,7 +149,7 @@ export const Filter = () => {
               </div>
               <div className="radio">
                 <input
-                  type="radio"
+                  type="checkbox"
                   {...register('disposition', { required: true })}
                   value="Ostatni"
                 />
@@ -160,8 +161,13 @@ export const Filter = () => {
           <div>
             <p>Stav</p>
             <div className="form_section">
-              <select className="form_input" type="text" {...register('state')}>
-                <option value="" selected disabled hidden>
+              <select
+                value=""
+                className="form_input"
+                type="text"
+                {...register('state')}
+              >
+                <option selected disabled hidden>
                   -- Vyberte položku --
                 </option>
                 <option>Dobrý</option>

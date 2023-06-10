@@ -89,4 +89,10 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+
+}
+
+.test div {
+  width: 100%;
 }
