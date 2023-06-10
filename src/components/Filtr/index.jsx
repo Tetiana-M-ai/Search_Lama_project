@@ -32,13 +32,13 @@ export const Filter = () => {
                 type="text"
                 {...register('nemovitost')}
               >
-                <option value="" selected disabled hidden>
+                {/* <option value="" selected disabled hidden>
                   -- Vyberte položku --
-                </option>
-                <option>Byt</option>
-                <option>Dům</option>
-                <option>Pozemek</option>
-                <option>Garaž</option>
+                </option> */}
+                <option>byt</option>
+                <option>dům</option>
+                <option>pozemek</option>
+                <option>garaž</option>
               </select>
             </div>
           </div>
@@ -47,13 +47,24 @@ export const Filter = () => {
             <p>Localita</p>
             <div className="form_section">
               <select className="form_input" type="text" {...register('town')}>
-                <option selected disabled hidden>
-                  -- Vyberte město --
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                <option>Brno</option>
+                <option>Břeclav</option>
+                <option>Hodonín</option>
+                <option>Holubice</option>
+                <option>Kuřim</option>
+                <option>Louny</option>
+                <option>Šlapanice</option>
+                <option>Modřice</option>
+                <option>Pohořelice</option>
+                <option>Česká</option>
+                <option>Moravský Písek</option>
+                <option>Mouřínov</option>
+                <option>Troubsko</option>
+                <option>Moravany</option>
+                <option>Těmice</option>
+                <option>Lhotka</option>
+                <option>Lelekovice</option>
+                <option>Prostějovičky</option>
               </select>
 
               <select
@@ -61,13 +72,50 @@ export const Filter = () => {
                 type="text"
                 {...register('street')}
               >
-                <option selected disabled hidden>
-                  -- Vyberte ulici --
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                <option>Berkova</option>
+                <option>Černovické nábřeží</option>
+                <option>Černovičky</option>
+                <option>Brno-Brno-jih</option>
+                <option>Pod Borovníkem</option>
+                <option>Durďákova</option>
+                <option>Bayerova</option>
+                <option>Nové sady</option>
+                <option>Jakubská</option>
+                <option>Preslova</option>
+                <option>Cejl</option>
+                <option>Nad Dědinou</option>
+                <option>Komenského</option>
+                <option>Brněnská</option>
+                <option>Chrlická</option>
+                <option>Sportovní</option>
+                <option>Antonína Slavíka</option>
+                <option>Hybešova</option>
+                <option>Milady Horákové</option>
+                <option>Heršpická</option>
+                <option>Lazaretní</option>
+                <option>Klobouček</option>
+                <option>Purkyňova</option>
+                <option>Smetanova</option>
+                <option>Špitálka</option>
+                <option>Jasanová</option>
+                <option>Neumannova</option>
+                <option>Světlá</option>
+                <option>Polní</option>
+                <option>třída Kpt. Jaroše</option>
+                <option>Orlí</option>
+                <option>Kaštanová</option>
+                <option>Trnitá</option>
+                <option>Plucárna</option>
+                <option>Jánská</option>
+                <option>Palackého třída</option>
+                <option>Chopinova</option>
+                <option>Hlinky</option>
+                <option>Fanderlíkova</option>
+                <option>Moskalykova</option>
+                <option>Mučednická</option>
+                <option>Arbesova</option>
+                <option>Jana Uhra</option>
+                <option>Veveří</option>
               </select>
             </div>
           </div>
@@ -162,13 +210,11 @@ export const Filter = () => {
             <p>Stav</p>
             <div className="form_section">
               <select className="form_input" type="text" {...register('state')}>
-                <option value="" selected disabled hidden>
-                  -- Vyberte položku --
-                </option>
-                <option>Dobrý</option>
-                <option>Špatný</option>
-                <option>K demolici</option>
-                <option>Novostavba</option>
+                <option>novostavba</option>
+                <option>po rekonstrukci</option>
+                <option>ve výstavbě</option>
+                <option>velmi dobrý</option>
+                <option>dobrý</option>
               </select>
             </div>
           </div>
@@ -176,33 +222,17 @@ export const Filter = () => {
           <div>
             <p>Cena</p>
             <div className="form_section">
-              <select
+              <input
                 className="form_input"
-                type="text"
+                type="number"
                 {...register('price_from')}
-              >
-                <option selected disabled hidden>
-                  -- Vyberte --
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+              />
 
-              <select
+              <input
                 className="form_input"
-                type="text"
+                type="number"
                 {...register('price_to')}
-              >
-                <option selected disabled hidden>
-                  -- Vyberte --
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+              />
             </div>
           </div>
 
@@ -214,13 +244,11 @@ export const Filter = () => {
                 type="text"
                 {...register('building')}
               >
-                <option value="" selected disabled hidden>
-                  -- Vyberte položku --
-                </option>
-                <option>Panel</option>
-                <option>Cihla</option>
-                <option>Dřevo</option>
-                <option>Ostatní</option>
+                <option>smíšená</option>
+                <option>cihlová</option>
+                <option>panelová</option>
+                <option>montovaná</option>
+                <option>skeletová</option>
               </select>
             </div>
           </div>
@@ -228,66 +256,34 @@ export const Filter = () => {
           <div>
             <p>Užitná plocha </p>
             <div className="form_section">
-              <select
+              <input
                 className="form_input"
-                type="text"
+                type="number"
                 {...register('area_from')}
-              >
-                <option selected disabled hidden>
-                  -- Vyberte --
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+              />
 
-              <select
+              <input
                 className="form_input"
-                type="text"
+                type="number"
                 {...register('area_to')}
-              >
-                <option selected disabled hidden>
-                  -- Vyberte --
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+              />
             </div>
           </div>
 
           <div>
             <p>Plocha pozemky</p>
             <div className="form_section">
-              <select
+              <input
                 className="form_input"
-                type="text"
+                type="number"
                 {...register('land_area_from')}
-              >
-                <option selected disabled hidden>
-                  -- Vyberte --
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+              />
 
-              <select
+              <input
                 className="form_input"
-                type="text"
+                type="number"
                 {...register('land_area_to')}
-              >
-                <option selected disabled hidden>
-                  -- Vyberte --
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+              />
             </div>
           </div>
 
@@ -300,12 +296,9 @@ export const Filter = () => {
                   type="text"
                   {...register('property')}
                 >
-                  <option value="" selected disabled hidden>
-                    -- Vyberte položku --
-                  </option>
-                  <option>Osobní</option>
-                  <option>Družstevní</option>
-                  <option>Státní/obecní</option>
+                  <option>osobní</option>
+                  <option>družstevní</option>
+                  <option>státní/obecní</option>
                 </select>
               </div>
             </div>
@@ -318,16 +311,13 @@ export const Filter = () => {
                   type="text"
                   {...register('electricity')}
                 >
-                  <option value="" selected disabled hidden>
-                    -- Vyberte položku --
-                  </option>
-                  <option>A-Mimořádně úsporná</option>
-                  <option>B-Velmi úsporná</option>
-                  <option>C-Úsporná</option>
-                  <option>D-Méně úsporná</option>
-                  <option>E-Nehospodárná</option>
-                  <option>F-Velmi nehospodárná</option>
-                  <option>G-Mimořádně nehospodárná</option>
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                  <option>D</option>
+                  <option>E</option>
+                  <option>F</option>
+                  <option>G</option>
                 </select>
               </div>
             </div>
@@ -340,10 +330,7 @@ export const Filter = () => {
                   type="text"
                   {...register('other')}
                 >
-                  <option value="" selected disabled hidden>
-                    -- Vyberte položku --
-                  </option>
-                  <option>Balkon</option>
+                  <option>balkony</option>
                   <option>Lodžie</option>
                   <option>Sklep</option>
                   <option>Terasa</option>
