@@ -214,28 +214,12 @@ export const Filter = () => {
           <div>
             <p>Stav</p>
             <div className="form_section">
-<<<<<<< HEAD:src/components/Filtr/index.jsx
               <select className="form_input" type="text" {...register('state')}>
                 <option>novostavba</option>
                 <option>po rekonstrukci</option>
                 <option>ve výstavbě</option>
                 <option>velmi dobrý</option>
                 <option>dobrý</option>
-=======
-              <select
-                value=""
-                className="form_input"
-                type="text"
-                {...register('state')}
-              >
-                <option selected disabled hidden>
-                  -- Vyberte položku --
-                </option>
-                <option>Dobrý</option>
-                <option>Špatný</option>
-                <option>K demolici</option>
-                <option>Novostavba</option>
->>>>>>> eb3992035db40cb4f1c9097e1728ddf52e4a8bb8:src/pages/Filtr/index.jsx
               </select>
             </div>
           </div>
