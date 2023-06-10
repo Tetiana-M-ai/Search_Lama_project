@@ -17,10 +17,10 @@ export const Header = () => (
         <h2 className="menu_items">Kontakt</h2>
       </div>
       <div className="button_header">
-        <NavLink className="btn_header" to={'./authorization'}>
+        <NavLink className="btn_header" to={'/authorization'}>
           Přihlásit se
         </NavLink>
-        <NavLink className="btn_header" to={'./registration'}>
+        <NavLink className="btn_header" to={'/registration'}>
           Registrovat se
         </NavLink>
       </div>

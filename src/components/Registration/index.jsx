@@ -3,8 +3,10 @@ import './style.css';
 import { useForm } from 'react-hook-form';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import { signUp } from '../../functions/auth.js';
+import { useNavigate } from 'react-router-dom';
 
 export const Registration = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,7 +17,7 @@ export const Registration = () => {
 
   const onSubmit = (data) => {
     signUp(data.email, data.password).then(() => {
-      // window.location.href = '/';
+      navigate('/filtr'); // window.location.href = '/';
     });
     reset();
   };
