@@ -1,4 +1,10 @@
+.header_wrapper {
+  position: relative;
+
+}
+
 .container_header {
+  height: 6rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,6 +37,29 @@ img {
   margin: 0 10px 0 20px;
 }
 
+.logo_wrapper {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+
+}
+
+.logo_wrapper:visited {
+  color: yellow;
+}
+
+.logo_wrapper:active {
+  color: yellow;
+}
+
+@media (min-width: 1064px) {
+  .logo_wrapper {
+    width: 50%;
+  }
+}
+
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -57,4 +86,40 @@ img {
   color: black;
   font-weight: bold;
   text-decoration: none;
+  text-align: center;
+}
+
+.desktop_header {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 1064px) {
+  .desktop_header {
+    display: flex;
+
+  }
+}
+
+.burger {
+  width: 3rem;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+}
+
+@media (min-width: 1064px) {
+  .burger {
+    display: none;
+
+  }
+}
+
+.burger svg {
+  fill: yellow;
+
 }

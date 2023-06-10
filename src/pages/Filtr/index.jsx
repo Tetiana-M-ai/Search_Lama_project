@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
 import './style.css';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FilterListToggle } from './buttonToggle/index';
 import { addRealEstateItems } from '../../functions/db.js';
+import { useNavigate } from 'react-router-dom';
 
 export const Filter = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     control,
@@ -17,6 +20,7 @@ export const Filter = () => {
     console.log(data);
     await addRealEstateItems(data);
     reset();
+    navigate('/houses-results');
   };
 
   return (
