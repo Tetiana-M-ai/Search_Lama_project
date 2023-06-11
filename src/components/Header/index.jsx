@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Logo from './img/Lama_logo.png';
 import './style.css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../contexts/authContexts';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MobilHeader } from './MobilHeader';
@@ -29,7 +29,9 @@ export const Header = () => {
         <div className="desktop_header">
           <div className="menu">
             <h2 className="menu_items">Uvod</h2>
-            <h2 className="menu_items">Jak to funguje?</h2>
+            <a href="#how-works">
+              <h2 className="menu_items">Jak to funguje?</h2>
+            </a>
             <h2 className="menu_items">Prohlédnout data</h2>
             <h2 className="menu_items">Kontakt</h2>
           </div>
