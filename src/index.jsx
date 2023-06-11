@@ -8,9 +8,10 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Filter } from './pages/Filtr';
 import { Layout } from './components/Layout/index';
 import { Cars } from './pages/Cars';
-import { Concerts } from './pages/Concerts';
+import { Tickets } from './pages/Tickets';
 import { HousesResults } from './pages/HousesResults';
-import { Credit } from './pages/Credit';
+import { UserPage } from './pages/UserPage';
+import { UserProvider } from './contexts/userContext';
 
 const router = createBrowserRouter([
   {
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
     path: '/concerts',
     element: (
       <Layout>
-        <Concerts />
+        <Tickets />
       </Layout>
     ),
   },
@@ -70,15 +71,17 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/credit',
+    path: '/user',
     element: (
       <Layout>
-        <Credit />
+        <UserPage />
       </Layout>
     ),
   },
 ]);
 
 createRoot(document.querySelector('#app')).render(
-  <RouterProvider router={router} />,
+  <UserProvider>
+    <RouterProvider router={router} />
+  </UserProvider>,
 );

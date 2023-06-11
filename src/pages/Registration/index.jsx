@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import { signUp } from '../../functions/auth.js';
 import { useNavigate } from 'react-router-dom';
-import { main } from '@popperjs/core';
 
 export const Registration = () => {
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ export const Registration = () => {
 
   const onSubmit = (data) => {
     signUp(data.email, data.password).then(() => {
-      navigate('/filtr'); // window.location.href = '/';
+      navigate('/user'); // window.location.href = '/';
     });
     reset();
   };

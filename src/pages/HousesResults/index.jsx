@@ -11,7 +11,7 @@ const fetchData = async () => {
 
 export const HousesResults = () => {
   const [data, setData] = useState(null);
-  const client = getSupabase();
+
   useEffect(() => {
     fetchData().then((response) => {
       console.log({ response });

@@ -1,0 +1,7 @@
+.second_menu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: white;
+  border: 1px solid lightgrey;
+}
