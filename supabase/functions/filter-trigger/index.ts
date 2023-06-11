@@ -45,24 +45,46 @@ serve(async (req) => {
       'disposition',
       'in',
       record?.disposition?.replace('[', '(').replace(']', ')'),
-    )
-    .eq('town', record?.town)
-    .like('street', `%${record?.street}%`)
-    .eq('building', record?.building);
+    );
+  if (`%${record?.street}%`) {
+    query = query.like('street', `%${record?.street}%`);
+  }
+  if (record?.building) {
+    query = query.eq('building', record?.building);
+  }
+  if (record?.state) {
+    query = query.eq('state', record?.state);
+  }
+  if (record?.town) {
+    query = query.eq('town', record?.town);
+  }
+  if (record?.property) {
+    query = query.eq('property', record?.property);
+  }
+  if (record?.electricity) {
+    query = query.eq('electricity', record?.electricity);
+  }
   if (record?.other === 'balcony') {
-    query = query.not('balcony', 'is', null);
+    query = query.not('balcony', record?.balcony);
   }
   if (record?.other === 'loggiea') {
-    query = query.not('loggiea', 'is', null);
+    query = query.not('loggiea', record?.loggiea);
   }
   if (record?.other === 'terrace') {
-    query = query.not('terrace', 'is', null);
+    query = query.not('terrace', record?.terrace);
   }
 
   const { data } = await query;
   const result = data?.map((item) => {
     return item.URL;
   });
+  console.log({ result });
+  if (!result || result?.length === 0) {
+    return new Response(JSON.stringify(''), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  console.log('Sending email...');
   await fetch('https://api.sendgrid.com/v3/mail/send', {
     method: 'POST',
     headers: {

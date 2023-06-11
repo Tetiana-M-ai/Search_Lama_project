@@ -50,6 +50,7 @@ export const Filter = () => {
             <p>Localita</p>
             <div className="form_section">
               <select className="form_input" type="text" {...register('town')}>
+                <option></option>
                 <option>Brno</option>
                 <option>Břeclav</option>
                 <option>Hodonín</option>
@@ -75,6 +76,7 @@ export const Filter = () => {
                 type="text"
                 {...register('street')}
               >
+                <option></option>
                 <option>Berkova</option>
                 <option>Černovické nábřeží</option>
                 <option>Černovičky</option>
@@ -213,6 +215,7 @@ export const Filter = () => {
             <p>Stav</p>
             <div className="form_section">
               <select className="form_input" type="text" {...register('state')}>
+                <option></option>
                 <option>novostavba</option>
                 <option>po rekonstrukci</option>
                 <option>ve výstavbě</option>
@@ -247,6 +250,7 @@ export const Filter = () => {
                 type="text"
                 {...register('building')}
               >
+                <option></option>
                 <option>smíšená</option>
                 <option>cihlová</option>
                 <option>panelová</option>
@@ -299,6 +303,7 @@ export const Filter = () => {
                   type="text"
                   {...register('property')}
                 >
+                  <option></option>
                   <option>osobní</option>
                   <option>družstevní</option>
                   <option>státní/obecní</option>
@@ -314,6 +319,7 @@ export const Filter = () => {
                   type="text"
                   {...register('electricity')}
                 >
+                  <option></option>
                   <option>A</option>
                   <option>B</option>
                   <option>C</option>
@@ -333,6 +339,7 @@ export const Filter = () => {
                   type="text"
                   {...register('other')}
                 >
+                  <option></option>
                   <option>balkony</option>
                   <option>loggiea</option>
                   <option>terrace</option>

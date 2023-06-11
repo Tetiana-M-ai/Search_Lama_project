@@ -44,8 +44,20 @@ serve(async (request) => {
   );
   const { data, error } = await supabaseClient
     .from('credits')
-    .insert({ email: userEmail, credit: 100 });
-
+    .select('credit')
+    .eq('email', userEmail)
+    .maybeSingle();
+  console.log(data);
+  if (data && data.credit > 0) {
+    await supabaseClient
+      .from('credits')
+      .update({ credit: data.credit + 100 })
+      .eq('email', userEmail);
+  } else {
+    const { data, error } = await supabaseClient
+      .from('credits')
+      .insert({ email: userEmail, credit: 100 });
+  }
   console.log(`🔔 Event received: ${JSON.stringify(receivedEvent)}`);
   return new Response(JSON.stringify({ ok: true }), { status: 200 });
 });
