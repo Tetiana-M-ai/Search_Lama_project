@@ -1,3 +1,7 @@
+body {
+  background-image: none;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -9,6 +13,45 @@
   display: flex;
   flex-direction: column;
 
+}
+
+.section_teaser {
+  display: flex;
+  background-image: url("../../img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  width: 100%;
+}
+
+.section_teaser div {
+  width: 50%;
+  height: 50vh;
+}
+
+.section_teaser div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: end;
+  padding-bottom: 5rem;
+}
+
+.section_teaser div:nth-child(2) p {
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.heading {
+  border-bottom: 1px solid gray;
+  padding-bottom: 1rem;
 }
 
 .card_wrapper {
@@ -40,4 +83,55 @@
   align-items: center;
   justify-content: center;
   border-radius: 20px;
+}
+
+.logo_page {
+  height: 15rem;
+}
+
+.title_item {
+  size: 20rem;
+}
+
+.small_title_item {
+  margin: 0 10px;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+
+.text div:first-child {
+  display: flex;
+  align-items: flex-start;
+}
+
+.text h1 {
+  height: fit-content;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  color: green;
+}
+
+.all_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 4rem 0;
+  gap: 10rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
