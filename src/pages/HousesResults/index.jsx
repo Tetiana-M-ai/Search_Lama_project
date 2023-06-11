@@ -1,36 +1,53 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { getSupabase } from '../../functions/supabase';
 import { BsFillCameraFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './style.css';
+import { UserContext } from '../../contexts/userContext';
 
-const fetchData = async () => {
+export const loader = async (params) => {
+  console.log(params);
+  return null;
+};
+
+const fetchAll = async () => {
   const client = getSupabase();
-  return client.from('realEstate_items').select('*');
+  return await client.from('realEstate_items').select('*');
 };
 
 export const HousesResults = () => {
-  const [data, setData] = useState(null);
+  const { fetchDataFilteredHouses, allHouses } = useContext(UserContext);
+  const [data, setData] = useState();
+  const [messagetoUser, setMessageToUser] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
-    fetchData().then((response) => {
-      console.log({ response });
-      setData(response?.data);
+    fetchDataFilteredHouses(location.state).then((response) => {
+      setData(response);
     });
   }, []);
+
+  useEffect(() => {
+    if (!data?.length) {
+      setMessageToUser('Vasim filtrum neodpovidaji zadne vysledky');
+      setData(allHouses);
+    }
+  }, [data]);
+
   return (
     <main>
+      {messagetoUser && <h3>{messagetoUser}</h3>}
       {data?.map((house) => (
-        <Link className="house_card" to={house?.URL}>
+        <Link className="house_card" key={house.ID} to={house?.URL}>
           <div className="image_wrapper">
             <BsFillCameraFill size="5rem " color="grey" />
           </div>
           <div className="wrapper">
-            <p>{house?.action_cz}</p>
-            <h3>{house?.property_type_cz}</h3>
+            <p>{house?.action}</p>
+            <h3>{house?.house_type_cz}</h3>
           </div>
           <div className="wrapper">
-            <h3>{house?.city}</h3>
+            <h3>{house?.county}</h3>
             <p>{house?.price ? house?.price : house?.price_adddon}</p>
           </div>
         </Link>

@@ -3,28 +3,38 @@ import { getSupabase } from './../functions/supabase';
 
 export const UserContext = React.createContext(null);
 
-const fetchData = async (supabaseTable) => {
-  const client = getSupabase();
+const client = getSupabase();
+
+const fetchDataFromUser = async (supabaseTable) => {
   const { data } = await client?.auth?.getUser();
-  console.log(data);
+
   return client.from(supabaseTable).select('*').eq('email', data?.user?.email);
 };
 
+const fetchDataAllHouses = async () => {
+  return client.from('realEstate_items').select('*');
+};
+
 export const UserProvider = ({ children }) => {
-  const [data, setData] = useState(null);
+  const [allHouses, setAllHouses] = useState(null);
+  const [userFilters, setUserFilter] = useState({});
   const [credits, setCredits] = useState(null);
   const [user, setUser] = useState(null);
 
   const [secondMenuOpenedLink, setSecondMenuOpenedLink] = useState('');
 
   useEffect(() => {
-    fetchData('filters').then((response) => {
-      console.log({ response });
-      setData(response?.data);
-    });
-    fetchData('credits').then((response) => {
-      console.log({ response });
+    fetchDataFromUser('credits').then((response) => {
+      console.log({ response }, 'credits');
       setCredits(response?.data);
+    });
+    fetchDataFromUser('filters').then((response) => {
+      console.log({ response }, 'filters');
+      setUserFilter(response?.data);
+    });
+    fetchDataAllHouses().then((response) => {
+      console.log({ response }, 'houses context');
+      setAllHouses(response?.data);
     });
   }, []);
 
@@ -36,14 +46,55 @@ export const UserProvider = ({ children }) => {
     });
   }, []);
 
+  const fetchDataFilteredHouses = async (record) => {
+    const client = getSupabase();
+    let query = client
+      .from('realEstate_items')
+      .select('*')
+      .eq('nemovitost', record?.nemovitost)
+
+      .eq('town', record?.town)
+      .like('street', `%${record?.street}%`)
+      .eq('building', record?.building);
+
+    if (record?.type) {
+      query = query.eq('action', record?.type);
+    }
+
+    if (record?.disposition?.length > 0) {
+      query = query.filter(
+        'disposition',
+        'in',
+        '("' + (record?.disposition || [])?.join('","') + '")',
+      );
+    }
+
+    if (record?.other === 'balcony') {
+      query = query.not('balcony', 'is', null);
+    }
+
+    if (record?.other === 'loggiea') {
+      query = query.not('loggiea', 'is', null);
+    }
+
+    if (record?.other === 'terrace') {
+      query = query.not('terrace', 'is', null);
+    }
+
+    const { data } = await query;
+    return data;
+  };
+
   return (
     <UserContext.Provider
       value={{
-        data,
+        allHouses,
         user,
         secondMenuOpenedLink,
         credits,
         setSecondMenuOpenedLink,
+        fetchDataFilteredHouses,
+        userFilters,
       }}
     >
       {children}

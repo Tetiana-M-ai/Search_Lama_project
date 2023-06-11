@@ -9,7 +9,7 @@ import { Filter } from './pages/Filtr';
 import { Layout } from './components/Layout/index';
 import { Cars } from './pages/Cars';
 import { Tickets } from './pages/Tickets';
-import { HousesResults } from './pages/HousesResults';
+import { HousesResults, loader } from './pages/HousesResults';
 import { UserPage } from './pages/UserPage';
 import { UserProvider } from './contexts/userContext';
 
@@ -69,6 +69,7 @@ const router = createBrowserRouter([
         <HousesResults />
       </Layout>
     ),
+    loader: loader,
   },
   {
     path: '/user',

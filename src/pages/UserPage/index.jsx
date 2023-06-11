@@ -14,8 +14,7 @@ const Component = {
 export const UserPage = () => {
   const [secondMenuOpened, setSecondMenuOpened] = useState('');
 
-  const { data, secondMenuOpenedLink, setSecondMenuOpenedLink } =
-    useContext(UserContext);
+  const { secondMenuOpenedLink } = useContext(UserContext);
 
   console.log(
     Component[secondMenuOpenedLink],

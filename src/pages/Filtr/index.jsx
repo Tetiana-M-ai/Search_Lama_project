@@ -1,5 +1,5 @@
 import './style.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FilterListToggle } from './buttonToggle/index';
 import { addRealEstateItems } from '../../functions/db.js';
@@ -19,8 +19,9 @@ export const Filter = () => {
   const onSubmit = async (data) => {
     console.log(data);
     await addRealEstateItems(data);
-    reset();
-    navigate('/houses-results');
+    navigate(`/houses-results`, {
+      state: data,
+    });
   };
 
   return (
@@ -128,7 +129,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="1+kk"
                 />
                 <p>1 + kk</p>
@@ -136,7 +137,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="1+1"
                 />
                 <p>1 + 1</p>
@@ -144,7 +145,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="2+kk"
                 />
                 <p>2 + kk</p>
@@ -152,7 +153,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="2+1"
                 />
                 <p>2 + 1</p>
@@ -160,7 +161,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="3+kk"
                 />
                 <p>3 + kk</p>
@@ -168,7 +169,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="3+1"
                 />
                 <p>3 + 1</p>
@@ -176,7 +177,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="4+kk"
                 />
                 <p>4 + kk</p>
@@ -184,7 +185,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="4+1"
                 />
                 <p>4 + 1</p>
@@ -192,7 +193,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="5+kk"
                 />
                 <p>5 + kk</p>
@@ -200,7 +201,7 @@ export const Filter = () => {
               <div className="radio">
                 <input
                   type="checkbox"
-                  {...register('disposition', { required: true })}
+                  {...register('disposition')}
                   value="Ostatni"
                 />
                 <p>Ostatní</p>

@@ -10,6 +10,7 @@ main {
   background-color: yellow;
   border-radius: 20px;
   text-decoration: none;
+  color: black;
 }
 
 @media (min-width: 768px) {
@@ -27,6 +28,16 @@ main {
 
 .house_card:visited {
   color: black;
+}
+
+.house_card:active {
+  color: black;
+}
+
+.house_card p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .image_wrapper {
