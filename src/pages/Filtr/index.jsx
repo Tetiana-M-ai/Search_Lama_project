@@ -37,9 +37,6 @@ export const Filter = () => {
                 type="text"
                 {...register('nemovitost')}
               >
-                {/* <option value="" selected disabled hidden>
-                  -- Vyberte položku --
-                </option> */}
                 <option>byt</option>
                 <option>dům</option>
                 <option>pozemek</option>
@@ -336,12 +333,8 @@ export const Filter = () => {
                   {...register('other')}
                 >
                   <option>balkony</option>
-                  <option>Lodžie</option>
-                  <option>Sklep</option>
-                  <option>Terasa</option>
-                  <option>Zahrada</option>
-                  <option>Výtah</option>
-                  <option>Parkování</option>
+                  <option>loggiea</option>
+                  <option>terrace</option>
                 </select>
               </div>
             </div>

@@ -21,6 +21,11 @@ export const Header = () => {
             <h1 className="title_logo">Hlídací Lama</h1>
           </div>
         </NavLink>
+        <NavLink className="logo_wrapper" to="/credit">
+          <div className="logo">
+            <h2 className="title_logo">Credit</h2>
+          </div>
+        </NavLink>
         <div className="desktop_header">
           <div className="menu">
             <h2 className="menu_items">Uvod</h2>

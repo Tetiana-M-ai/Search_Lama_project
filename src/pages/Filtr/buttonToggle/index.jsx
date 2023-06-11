@@ -10,8 +10,8 @@ export const FilterListToggle = ({ control }) => {
         control={control}
         render={({ field }) => (
           <ToggleButtonGroup {...field} exclusive color="standard">
-            <ToggleButton value="pronajem">Pronajem</ToggleButton>
-            <ToggleButton value="prodej">Prodej</ToggleButton>
+            <ToggleButton value="pronajem">pronájem</ToggleButton>
+            <ToggleButton value="prodej">prodej</ToggleButton>
           </ToggleButtonGroup>
         )}
       />
