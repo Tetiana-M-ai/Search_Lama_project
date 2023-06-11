@@ -8,7 +8,7 @@ export const getRealEstateItems = () => {
 export const addRealEstateItems = async ({
   area_from,
   area_to,
-  action,
+  type,
   building,
   disposition,
   electricity,
@@ -30,7 +30,7 @@ export const addRealEstateItems = async ({
     // area_from: area_from,
     // area_to: area_to,
     nemovitost: nemovitost,
-    action: action,
+    type: type,
     building: building,
     disposition: disposition,
     email: user?.data?.user?.email,

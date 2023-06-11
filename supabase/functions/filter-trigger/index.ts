@@ -40,10 +40,14 @@ serve(async (req) => {
     .from('realEstate_items')
     .select('URL')
     .eq('nemovitost', record?.nemovitost)
-    .eq('action', record?.action)
-    .eq('disposition', record?.disposition)
+    .eq('action', record?.type)
+    .filter(
+      'disposition',
+      'in',
+      record?.disposition?.replace('[', '(').replace(']', ')'),
+    )
     .eq('town', record?.town)
-    .eq('street', record?.street)
+    .like('street', `%${record?.street}%`)
     .eq('building', record?.building);
   if (record?.other === 'balcony') {
     query = query.not('balcony', 'is', null);
@@ -57,7 +61,7 @@ serve(async (req) => {
 
   const { data } = await query;
   const result = data?.map((item) => {
-    return `<li>${item.URL}</li>`;
+    return item.URL;
   });
   await fetch('https://api.sendgrid.com/v3/mail/send', {
     method: 'POST',
@@ -66,14 +70,18 @@ serve(async (req) => {
       Authorization: `Bearer ${Deno.env.get('SEND_GRID_KEY')}`,
     },
     body: JSON.stringify({
+      template_id: 'd-0c2eb2021d0a468c98dacfbf4271f196',
       personalizations: [
         {
           to: [
             {
               email: record?.email,
-              name: 'Alina',
+              // name: 'Alina',
             },
           ],
+          dynamic_template_data: {
+            urls: result,
+          },
         },
       ],
       from: {
@@ -82,12 +90,6 @@ serve(async (req) => {
       },
 
       subject: 'Cool content',
-      content: [
-        {
-          type: 'text/html',
-          value: `<div><ul>${result?.join('')}</ul><div/>`,
-        },
-      ],
     }),
   });
 
