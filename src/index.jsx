@@ -10,6 +10,7 @@ import { Layout } from './components/Layout/index';
 import { Cars } from './pages/Cars';
 import { Concerts } from './pages/Concerts';
 import { HousesResults } from './pages/HousesResults';
+import { Credit } from './pages/Credit';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <HousesResults />
+      </Layout>
+    ),
+  },
+  {
+    path: '/credit',
+    element: (
+      <Layout>
+        <Credit />
       </Layout>
     ),
   },

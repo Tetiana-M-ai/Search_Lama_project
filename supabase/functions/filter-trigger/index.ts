@@ -40,12 +40,19 @@ serve(async (req) => {
     .from('realEstate_items')
     .select('URL')
     .eq('nemovitost', record?.nemovitost)
+    .eq('action', record?.action)
     .eq('disposition', record?.disposition)
     .eq('town', record?.town)
     .eq('street', record?.street)
     .eq('building', record?.building);
   if (record?.other === 'balcony') {
     query = query.not('balcony', 'is', null);
+  }
+  if (record?.other === 'loggiea') {
+    query = query.not('loggiea', 'is', null);
+  }
+  if (record?.other === 'terrace') {
+    query = query.not('terrace', 'is', null);
   }
 
   const { data } = await query;
