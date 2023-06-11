@@ -58,11 +58,21 @@ serve(async (req) => {
   if (record?.other === 'terrace') {
     query = query.not('terrace', 'is', null);
   }
+  // if (record?.price_from != null && record?.price_to != null) {
+  //   query = query.not(record?.price_from && record?.price_to);
+  // }
 
   const { data } = await query;
   const result = data?.map((item) => {
     return item.URL;
   });
+  console.log({ result });
+  if (!result || result?.length === 0) {
+    return new Response(JSON.stringify(''), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  console.log('Sending email...');
   await fetch('https://api.sendgrid.com/v3/mail/send', {
     method: 'POST',
     headers: {
