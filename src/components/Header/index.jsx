@@ -10,11 +10,31 @@ import { FaUserCircle } from 'react-icons/fa';
 import { RxExit } from 'react-icons/rx';
 import { signOut } from '../../functions/auth.js';
 import { useNavigate } from 'react-router-dom';
+import { getSupabase } from '../../functions/supabase';
 
 export const Header = () => {
   const [mobilMenuOpened, setMobilMenuOpened] = useState(false);
   const { user } = useContext(UserContext);
   const location = useLocation();
+  const supabase = getSupabase();
+  const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    const supabase = getSupabase();
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (event === 'SIGNED_IN') {
+          setSession(session);
+        }
+        if (event === 'SIGNED_OUT') {
+          setSession(null);
+        }
+      },
+    );
+    return () => {
+      authListener.unsubscribe();
+    };
+  }, []);
 
   const onSubmit = () => {
     signOut().then(() => {
@@ -32,8 +52,9 @@ export const Header = () => {
             <h1 className="title_logo">Hlídací Lama</h1>
           </div>
         </NavLink>
+
         <div className="desktop_header">
-          {location?.pathname === '/' ? (
+          {location?.pathname === '/' && (
             <div className="menu">
               <a className="link_section" href="#link_one">
                 <h2 className="menu_items">Uvod</h2>
@@ -48,29 +69,29 @@ export const Header = () => {
                 <h2 className="menu_items">Kontakt</h2>
               </a>
             </div>
-          ) : (
-            <></>
           )}
-          {user?.lenght > 0 ? (
+
+          {!session ? (
             <div className="button_header">
-              <NavLink className="btn_header" to={'/authorization'}>
+              <NavLink className="btn_header" to="/authorization">
                 Přihlásit se
               </NavLink>
-              <NavLink className="btn_header" to={'/registration'}>
+              <NavLink className="btn_header" to="/registration">
                 Registrovat se
               </NavLink>
             </div>
           ) : (
             <div>
-              <NavLink to={'/user'}>
+              <NavLink to="/user">
                 <FaUserCircle className="user_icon" />
               </NavLink>
-              <NavLink to={'/'} onClick={onSubmit}>
+              <NavLink to="/" onClick={onSubmit}>
                 <RxExit className="user_icon" />
               </NavLink>
             </div>
           )}
         </div>
+
         <div className="burger">
           {mobilMenuOpened ? (
             <CgClose
@@ -85,6 +106,7 @@ export const Header = () => {
             />
           )}
         </div>
+
         {mobilMenuOpened && <MobilHeader />}
       </div>
     </header>
