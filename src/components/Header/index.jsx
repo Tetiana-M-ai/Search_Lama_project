@@ -8,11 +8,20 @@ import { CgClose } from 'react-icons/cg';
 import { UserContext } from '../../contexts/userContext';
 import { FaUserCircle } from 'react-icons/fa';
 import { RxExit } from 'react-icons/rx';
+import { signOut } from '../../functions/auth.js';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
   const [mobilMenuOpened, setMobilMenuOpened] = useState(false);
   const { user } = useContext(UserContext);
   const location = useLocation();
+
+  const onSubmit = () => {
+    signOut().then(() => {
+      navigate('/');
+    });
+  };
+  const navigate = useNavigate();
 
   return (
     <header className="header_wrapper">
@@ -56,7 +65,7 @@ export const Header = () => {
               <NavLink to={'/user'}>
                 <FaUserCircle className="user_icon" />
               </NavLink>
-              <NavLink to={'/'}>
+              <NavLink to={'/'} onClick={onSubmit}>
                 <RxExit className="user_icon" />
               </NavLink>
             </div>
