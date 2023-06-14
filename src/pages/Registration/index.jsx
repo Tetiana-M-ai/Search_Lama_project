@@ -38,7 +38,7 @@ export const Registration = () => {
 
   return (
     <main className="container">
-      <div className="container_form">
+      <div className="container_registration">
         <h2 className="form_title">Registrace</h2>
         <div>
           <form className="form" onSubmit={handleSubmit(onSubmit)}>

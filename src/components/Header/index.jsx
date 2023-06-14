@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Logo from './img/Lama_logo.png';
+import Logo from '../../img/Lama_logo.png';
 import './style.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -7,6 +7,7 @@ import { MobilHeader } from './MobilHeader';
 import { CgClose } from 'react-icons/cg';
 import { UserContext } from '../../contexts/userContext';
 import { FaUserCircle } from 'react-icons/fa';
+import { RxExit } from 'react-icons/rx';
 
 export const Header = () => {
   const [mobilMenuOpened, setMobilMenuOpened] = useState(false);
@@ -25,12 +26,18 @@ export const Header = () => {
         <div className="desktop_header">
           {location?.pathname === '/' ? (
             <div className="menu">
-              <h2 className="menu_items">Uvod</h2>
-              <a href="#how-works">
+              <a className="link_section" href="#link_one">
+                <h2 className="menu_items">Uvod</h2>
+              </a>
+              <a className="link_section" href="#link_two">
                 <h2 className="menu_items">Jak to funguje?</h2>
               </a>
-              <h2 className="menu_items">Prohlédnout data</h2>
-              <h2 className="menu_items">Kontakt</h2>
+              <a className="link_section" href="#link_three">
+                <h2 className="menu_items">Prohlédnout data</h2>
+              </a>
+              <a className="link_section" href="#link_four">
+                <h2 className="menu_items">Kontakt</h2>
+              </a>
             </div>
           ) : (
             <></>
@@ -45,9 +52,14 @@ export const Header = () => {
               </NavLink>
             </div>
           ) : (
-            <NavLink className="" to={'/user'}>
-              <FaUserCircle />
-            </NavLink>
+            <div>
+              <NavLink to={'/user'}>
+                <FaUserCircle className="user_icon" />
+              </NavLink>
+              <NavLink to={'/'}>
+                <RxExit className="user_icon" />
+              </NavLink>
+            </div>
           )}
         </div>
         <div className="burger">

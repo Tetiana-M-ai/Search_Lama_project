@@ -28,8 +28,6 @@ img {
   border-radius: 50%;
   margin: 5px 0;
   padding: 0;
-  border: solid 3px yellow;
-
 }
 
 .title_logo {
@@ -50,6 +48,21 @@ img {
 }
 
 .logo_wrapper:active {
+  color: yellow;
+}
+
+.link_section:visited {
+  color: yellow;
+}
+
+.link_section {
+  color: yellow;
+}
+
+.user_icon {
+  margin: 10px;
+  width: 1.5rem;
+  height: inherit;
   color: yellow;
 }
 
@@ -93,12 +106,14 @@ img {
   display: none;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+  margin-right: 5px;
+  gap: 130px;
 }
 
 @media (min-width: 1064px) {
   .desktop_header {
     display: flex;
+    justify-content: end;
 
   }
 }

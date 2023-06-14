@@ -7,12 +7,12 @@
   width: 100%;
 }
 
-.container_form {
-  max-width: 30%;
+.container_registration {
   margin: 200px auto;
   background-color: white;
   border-radius: 10px;
   padding: 20px 20px;
+  margin-top: 50px;
 }
 
 .form_title {
@@ -71,6 +71,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   background-color: yellow;
+  text-align: center;
 }
 
 .form_btn:disabled,
