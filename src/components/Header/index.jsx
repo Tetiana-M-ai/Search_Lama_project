@@ -12,11 +12,12 @@ import { signOut } from '../../functions/auth.js';
 import { useNavigate } from 'react-router-dom';
 import { getSupabase } from '../../functions/supabase';
 
+const supabase = getSupabase();
+
 export const Header = () => {
   const [mobilMenuOpened, setMobilMenuOpened] = useState(false);
   const { user } = useContext(UserContext);
   const location = useLocation();
-  const supabase = getSupabase();
   const [session, setSession] = useState(null);
   const navigate = useNavigate();
 

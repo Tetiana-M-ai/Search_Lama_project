@@ -7,10 +7,12 @@ import { RxExit } from 'react-icons/rx';
 import { getSupabase } from '../../../functions/supabase';
 import { signOut } from '../../../functions/auth';
 
+const supabase = getSupabase();
+
 export const MobilHeader = () => {
   const { user } = useContext(UserContext);
   const location = useLocation();
-  const supabase = getSupabase();
+
   const [session, setSession] = useState(null);
   const navigate = useNavigate();
 
