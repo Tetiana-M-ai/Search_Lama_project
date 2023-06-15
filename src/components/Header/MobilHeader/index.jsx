@@ -13,7 +13,6 @@ export const MobilHeader = () => {
   const supabase = getSupabase();
   const [session, setSession] = useState(null);
   const navigate = useNavigate();
-  // console.log(context);
 
   useEffect(() => {
     const supabase = getSupabase();
@@ -28,7 +27,7 @@ export const MobilHeader = () => {
       },
     );
     return () => {
-      authListener.unsubscribe();
+      authListener?.subscription.unsubscribe();
     };
   }, []);
 

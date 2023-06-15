@@ -17,7 +17,7 @@ export const Authorization = () => {
 
   const onSubmit = (data) => {
     signIn(data.email, data.password).then(() => {
-      navigate('/filtr');
+      navigate('/user');
     });
     reset();
   };

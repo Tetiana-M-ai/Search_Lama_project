@@ -33,7 +33,7 @@ export const Header = () => {
       },
     );
     return () => {
-      authListener.unsubscribe();
+      authListener?.subscription.unsubscribe();
     };
   }, []);
 
