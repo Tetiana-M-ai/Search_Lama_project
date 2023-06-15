@@ -8,15 +8,15 @@ export const AuthProvider = ({ children }) => {
 
   const supabase = getSupabase();
 
-  useEffect(() => {
-    const { data } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log(event, session);
-    });
+  // useEffect(() => {
+  //   const { data } = supabase.auth.onAuthStateChange((event, session) => {
+  //     console.log(event, session);
+  //   });
 
-    return () => {
-      data?.subscription?.unsubscribe();
-    };
-  }, []);
+  //   return () => {
+  //     data?.subscription?.unsubscribe();
+  //   };
+  // }, []);
   return (
     <AuthContext.Provider value={{ session }}>{children}</AuthContext.Provider>
   );

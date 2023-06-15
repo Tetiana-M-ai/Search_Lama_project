@@ -24,7 +24,7 @@ export const MobilHeader = () => {
       <NavLink className="menu_link">
         <h2>Kontakt</h2>
       </NavLink>
-      {user?.lenght > 0 ? (
+      {!session ? (
         <>
           <NavLink className="btn_header mobile_button" to={'/authorization'}>
             Přihlásit se
