@@ -41,19 +41,6 @@ export const MobilHeader = () => {
   return (
     <header className="container_mobile_header">
       {!session ? (
-      <NavLink className="menu_link">
-        <h2>Uvod</h2>
-      </NavLink>
-      <NavLink className="menu_link">
-        <h2>Jak to funguje?</h2>
-      </NavLink>
-      <NavLink className="menu_link">
-        <h2>Prohlédnout data</h2>
-      </NavLink>
-      <NavLink className="menu_link">
-        <h2>Kontakt</h2>
-      </NavLink>
-      {!session ? (
         <>
           <NavLink className="btn_header mobile_button" to={'/authorization'}>
             Přihlásit se
