@@ -7,6 +7,7 @@
   height: 6rem;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   color: yellow;
   background-color: rgb(6, 6, 6, 0.8);
@@ -83,6 +84,9 @@ img {
 .menu_items {
   font-size: 1rem;
   margin: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .button_header {
@@ -100,6 +104,9 @@ img {
   font-weight: bold;
   text-decoration: none;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .desktop_header {

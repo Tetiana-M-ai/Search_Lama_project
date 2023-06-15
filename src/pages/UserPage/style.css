@@ -17,8 +17,9 @@
 
 .side_menu ul li {
   padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   position: relative;
+  font-weight: bold;
 }
 
 .side_menu ul li:hover {

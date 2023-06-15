@@ -18,6 +18,7 @@ export const Header = () => {
   const location = useLocation();
   const supabase = getSupabase();
   const [session, setSession] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const supabase = getSupabase();
@@ -41,7 +42,6 @@ export const Header = () => {
       navigate('/');
     });
   };
-  const navigate = useNavigate();
 
   return (
     <header className="header_wrapper">

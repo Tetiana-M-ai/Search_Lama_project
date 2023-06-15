@@ -1,3 +1,12 @@
+.container_filtr {
+  background-image: url("/src/img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  padding: 2rem 0;
+}
+
 .container_form {
   max-width: 50%;
   margin: 200px auto;

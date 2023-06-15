@@ -17,7 +17,7 @@ export const Authorization = () => {
 
   const onSubmit = (data) => {
     signIn(data.email, data.password).then(() => {
-      navigate('/user'); // window.location.href = '/';
+      navigate('/filtr');
     });
     reset();
   };
@@ -30,7 +30,7 @@ export const Authorization = () => {
 
   return (
     <main className="container">
-      <div className="container_form">
+      <div className="container_authorization">
         <h2 className="form_title">Příhlášení</h2>
         <div>
           <form className="form" onSubmit={handleSubmit(onSubmit)}>
