@@ -1,41 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { getSupabase } from '../../../functions/supabase';
 import './style.css';
 import { UserContext } from '../../../contexts/userContext';
-import { useLocation } from 'react-router-dom';
-
-export const loader = async (params) => {
-  console.log(params);
-  return null;
-};
-
-const fetchAll = async () => {
-  const client = getSupabase();
-  return await client.from('credits').select('*');
-};
 
 export const Credits = () => {
-  const { fetchDataAllCredits, allCredits } = useContext(UserContext);
-  const [data, setData] = useState();
-
-  const location = useLocation();
-
-  useEffect(() => {
-    fetchDataAllCredits(location.state).then((response) => {
-      setData(response);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (!data?.length) {
-      setData(allCredits);
-    }
-  }, [data]);
+  const { credits } = useContext(UserContext);
 
   return (
     <div className="container_form">
       <h3>
-        Momentálně na účtu máte: {allCredits && allCredits.data[0]?.status}
+        Momentálně na účtu mate:
+        {credits.map((item) => (
+          <span key={item.id}>{item.credit}</span>
+        ))}
+        CZK
       </h3>
 
       <stripe-buy-button

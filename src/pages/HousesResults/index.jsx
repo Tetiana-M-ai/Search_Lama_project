@@ -23,6 +23,7 @@ export const HousesResults = () => {
 
   useEffect(() => {
     fetchDataFilteredHouses(location.state).then((response) => {
+      setMessageToUser('Vasim filtrum odpovidaji následující vysledky');
       setData(response);
     });
   }, []);

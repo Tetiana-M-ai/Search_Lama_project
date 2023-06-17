@@ -7,7 +7,6 @@ const client = getSupabase();
 
 const fetchDataFromUser = async (supabaseTable) => {
   const { data } = await client?.auth?.getUser();
-
   return client.from(supabaseTable).select('*').eq('email', data?.user?.email);
 };
 
@@ -15,13 +14,8 @@ const fetchDataAllHouses = async () => {
   return client.from('realEstate_items').select('*');
 };
 
-const fetchDataAllCredits = async () => {
-  return client.from('credits').select('*');
-};
-
 export const UserProvider = ({ children }) => {
   const [allHouses, setAllHouses] = useState(null);
-  const [allCredits, setAllCredits] = useState(null);
   const [userFilters, setUserFilter] = useState({});
   const [credits, setCredits] = useState(null);
   const [user, setUser] = useState(null);
@@ -41,10 +35,6 @@ export const UserProvider = ({ children }) => {
       console.log({ response }, 'houses context');
       setAllHouses(response?.data);
     });
-    fetchDataAllCredits().then((response) => {
-      console.log({ response }, 'credits context');
-      setAllCredits(response?.data);
-    });
   }, []);
 
   useEffect(() => {
@@ -54,14 +44,6 @@ export const UserProvider = ({ children }) => {
       setUser(response?.data?.user);
     });
   }, []);
-
-  const fetchDataAllCredits = async (record) => {
-    const client = getSupabase();
-    let query = client.from('credits').select('*').eq('credit', record?.credit);
-
-    const { data } = await query;
-    return data;
-  };
 
   const fetchDataFilteredHouses = async (record) => {
     const client = getSupabase();
@@ -106,13 +88,11 @@ export const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         allHouses,
-        allCredits,
         user,
         secondMenuOpenedLink,
         credits,
         setSecondMenuOpenedLink,
         fetchDataFilteredHouses,
-        fetchDataAllCredits,
         userFilters,
       }}
     >
