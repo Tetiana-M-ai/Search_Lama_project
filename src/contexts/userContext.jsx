@@ -112,6 +112,7 @@ export const UserProvider = ({ children }) => {
         credits,
         setSecondMenuOpenedLink,
         fetchDataFilteredHouses,
+        fetchDataAllCredits,
         userFilters,
       }}
     >

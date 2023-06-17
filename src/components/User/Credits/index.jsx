@@ -34,7 +34,9 @@ export const Credits = () => {
 
   return (
     <div className="container_form">
-      {/* <h3>Momentálně na účtu máte: ${allCredits.credit}</h3> */}
+      <h3>
+        Momentálně na účtu máte: {allCredits && allCredits.data[0]?.status}
+      </h3>
 
       <stripe-buy-button
         buy-button-id="buy_btn_1NHnR0A1C8ScT0zC9YScSe50"
