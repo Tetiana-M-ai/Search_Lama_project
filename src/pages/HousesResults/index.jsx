@@ -29,29 +29,36 @@ export const HousesResults = () => {
 
   useEffect(() => {
     if (!data?.length) {
-      setMessageToUser('Vasim filtrum neodpovidaji zadne vysledky');
+      setMessageToUser('Vašemu filtru neodpovídají žádné výsledky');
       setData(allHouses);
     }
   }, [data]);
 
   return (
     <main>
-      {messagetoUser && <h3>{messagetoUser}</h3>}
-      {data?.map((house) => (
-        <Link className="house_card" key={house.ID} to={house?.URL}>
-          <div className="image_wrapper">
-            <BsFillCameraFill size="5rem " color="grey" />
-          </div>
-          <div className="wrapper">
-            <p>{house?.action}</p>
-            <h3>{house?.house_type_cz}</h3>
-          </div>
-          <div className="wrapper">
-            <h3>{house?.county}</h3>
-            <p>{house?.price ? house?.price : house?.price_adddon}</p>
-          </div>
-        </Link>
-      ))}
+      <div>
+        <div className="message">
+          {messagetoUser && <h3>{messagetoUser}</h3>}
+        </div>
+
+        <div className="cards">
+          {data?.map((house) => (
+            <Link className="house_card" key={house.ID} to={house?.URL}>
+              <div className="image_wrapper">
+                <BsFillCameraFill size="5rem " color="darkgray" />
+              </div>
+              <div className="wrapper">
+                <p>{house?.action}</p>
+                <h3 className="card_text">{house?.house_type_cz}</h3>
+              </div>
+              <div className="wrapper">
+                <h3 className="card_text">{house?.county}</h3>
+                <p>{house?.price ? house?.price : house?.price_adddon}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
     </main>
   );
 };

@@ -7,7 +7,7 @@ body {
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 80px;
 }
 
 .page_wrapper {
@@ -61,8 +61,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-top: 6rem;
-  width: 80%;
+  padding: 6rem;
 }
 
 
@@ -70,9 +69,19 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 80%;
   margin-bottom: 4rem;
-  padding-top: 6rem;
+  padding: 6rem;
+}
+
+@media (min-width: 768px) {
+  .section_two {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 6rem;
+  }
 }
 
 .heading {
