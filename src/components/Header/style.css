@@ -109,18 +109,20 @@ img {
   text-overflow: ellipsis;
 }
 
+.btn_header:hover {
+  background-color: #ffd900;
+}
+
 .desktop_header {
   display: none;
-  width: 100%;
   align-items: center;
   margin-right: 5px;
-  gap: 130px;
 }
 
 @media (min-width: 1064px) {
   .desktop_header {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
 
   }
 }

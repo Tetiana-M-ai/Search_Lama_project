@@ -9,16 +9,21 @@ export const Home = () => {
   return (
     <main className="page_wrapper">
       <div id="link_one" className="section_teaser">
-        <div></div>
-        <div>
-          <h1>Nenechte si ujít příležitost!</h1>
-          <p>
-            Kolik jste ochotni zaplatit za informaci, která vám ušetří pár
-            stovek nebo pár hodin? Co třeba 10 korun?
-          </p>
-          <NavLink className="btn_teaser" to={'/registration'}>
-            Registrovat se
-          </NavLink>
+        <div className="teaser">
+          <div className="title_teaser">
+            <h1>Nenechte si ujít příležitost!</h1>
+          </div>
+          <div>
+            <p>
+              Kolik jste ochotni zaplatit za informaci, která vám ušetří pár
+              stovek nebo pár hodin? Co třeba 10 korun?
+            </p>
+          </div>
+          <div>
+            <NavLink className="btn_teaser" to={'/registration'}>
+              Registrovat se
+            </NavLink>
+          </div>
         </div>
       </div>
 

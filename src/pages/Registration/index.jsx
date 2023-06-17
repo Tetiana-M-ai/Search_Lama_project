@@ -3,7 +3,7 @@ import './style.css';
 import { useForm } from 'react-hook-form';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import { signUp } from '../../functions/auth.js';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export const Registration = () => {
   const navigate = useNavigate();
@@ -147,9 +147,9 @@ export const Registration = () => {
             </div>
           </form>
 
-          <a className="form_link" href="">
+          <NavLink className="form_link" to={'/authorization'}>
             Už mám učet
-          </a>
+          </NavLink>
         </div>
       </div>
     </main>

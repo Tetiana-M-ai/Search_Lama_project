@@ -4,9 +4,18 @@
 }
 
 .side_menu {
-  width: 30%;
+  width: 50%;
   height: 100vh;
   background-color: white;
+}
+
+@media (min-width: 768px) {
+  .side_menu {
+    width: 30%;
+    height: 100vh;
+    background-color: white;
+  }
+
 }
 
 .side_menu ul {
@@ -20,6 +29,7 @@
   font-size: 1.5rem;
   position: relative;
   font-weight: bold;
+  color: black;
 }
 
 .side_menu ul li:hover {

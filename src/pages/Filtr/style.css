@@ -8,11 +8,31 @@
 }
 
 .container_form {
-  max-width: 50%;
+  max-width: 90%;
   margin: 200px auto;
   background-color: white;
   border-radius: 10px;
   padding: 20px 20px;
+}
+
+@media (min-width: 768px) {
+  .container_form {
+    max-width: 70%;
+    margin: 200px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 20px;
+  }
+}
+
+@media (min-width: 1064px) {
+  .container_form {
+    max-width: 50%;
+    margin: 200px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 20px;
+  }
 }
 
 .form_title {
@@ -86,6 +106,10 @@ p {
   cursor: pointer;
   transition: all 0.3s ease;
   margin: auto;
+}
+
+.form_btn:hover {
+  background-color: #ffd900;
 }
 
 
