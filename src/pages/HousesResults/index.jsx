@@ -30,7 +30,9 @@ export const HousesResults = () => {
 
   useEffect(() => {
     if (!data?.length) {
-      setMessageToUser('Vašemu filtru neodpovídají žádné výsledky');
+      setMessageToUser(
+        'Vašemu filtru neodpovídají žádné výsledky. Proto zde zobrazujeme možnosti, které by Vás mohly zajímat',
+      );
       setData(allHouses);
     }
   }, [data]);

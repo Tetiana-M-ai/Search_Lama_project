@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const Settings = () => {
-  return <h1></h1>;
+  return <h1>Pripravuje se ...</h1>;
 };

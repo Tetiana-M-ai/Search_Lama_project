@@ -88,17 +88,17 @@ export const Home = () => {
           </p>
         </div>
         <div className="container_link">
-          <NavLink className="card_wrapper" to={'/filtr'}>
+          <NavLink className="card_wrapper" to={'/authorization'}>
             <div className="card">
               <p>Nemovitosti</p>
             </div>
           </NavLink>
-          <NavLink className="card_wrapper" to={'/cars'}>
+          <NavLink className="card_wrapper" to={'/authorization'}>
             <div className="card">
               <p>Auta</p>
             </div>
           </NavLink>
-          <NavLink className="card_wrapper" to={'/concerts'}>
+          <NavLink className="card_wrapper" to={'/authorization'}>
             <div className="card">
               <p>Koncerty</p>
             </div>

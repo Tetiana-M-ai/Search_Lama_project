@@ -2,5 +2,5 @@ import React from 'react';
 import './style.css';
 
 export const Offers = () => {
-  return <h1></h1>;
+  return <h1>Pripravuje se ...</h1>;
 };

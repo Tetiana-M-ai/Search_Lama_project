@@ -14,6 +14,10 @@ const fetchDataAllHouses = async () => {
   return client.from('realEstate_items').select('*');
 };
 
+const fetchDataAllCredits = async () => {
+  return client.from('credits').select('*');
+};
+
 export const UserProvider = ({ children }) => {
   const [allHouses, setAllHouses] = useState(null);
   const [userFilters, setUserFilter] = useState({});

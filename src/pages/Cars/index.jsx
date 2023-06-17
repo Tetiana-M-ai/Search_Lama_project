@@ -4,7 +4,7 @@ import React from 'react';
 export const Cars = () => {
   return (
     <main>
-      <h1>Pripravuje se</h1>
+      <h1>Pripravuje se ...</h1>
     </main>
   );
 };
